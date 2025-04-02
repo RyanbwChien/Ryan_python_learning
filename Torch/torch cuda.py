@@ -5,7 +5,20 @@ Created on Mon Mar 31 10:10:39 2025
 @author: USER
 """
 
+
+"""
+git clone https://github.com/Dao-AILab/flash-attention.git
+
+cd flash-attention
+
+pip install . 
+"""
+
+
+
 import torch
+
+print(torch.version.cuda)
 
 torch.cuda.is_available()
 
@@ -18,3 +31,6 @@ if torch.cuda.is_available():
         print(f"cuda:{i} - {torch.cuda.get_device_name(i)}")
 else:
     print("No GPU available, using CPU.")
+    
+    
+    
