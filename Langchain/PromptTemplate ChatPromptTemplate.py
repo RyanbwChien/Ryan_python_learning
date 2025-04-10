@@ -27,12 +27,24 @@ from langchain.prompts.chat import (
 使用範例：
 '''
 
+# =============================================================================
+# ✅ PromptTemplate 必須指定 input_variables
+# 這是因為 LangChain 需要明確知道：
+# 
+# 「這個 prompt 中有哪些變數是你要 later 再 .format() 填入的？」
+# =============================================================================
+
 from langchain.prompts import PromptTemplate
 
 prompt_template = PromptTemplate(
     input_variables=["name"],
     template="Hello, {name}!"
 )
+
+final_prompt = prompt_template.format(name="Alice")
+print(final_prompt)
+
+prompt_template
 
 '''
 2. ChatPromptTemplate：

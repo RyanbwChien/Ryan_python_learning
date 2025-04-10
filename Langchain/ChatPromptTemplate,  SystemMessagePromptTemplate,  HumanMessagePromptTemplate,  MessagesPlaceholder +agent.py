@@ -25,6 +25,7 @@ llm = ChatOpenAI(
     openai_api_key=OPENAI_API_KEY
 )
 
+
 from langchain.prompts import (
     ChatPromptTemplate,
     SystemMessagePromptTemplate,
@@ -86,6 +87,9 @@ from langchain.prompts import (
 # agent.invoke({"input": chat_history})
 # 這時 MessagesPlaceholder(variable_name="input") 會插入這整段訊息歷史。
 # =============================================================================
+
+
+
 
 
 from langchain_core.messages import SystemMessage
