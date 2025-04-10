@@ -31,6 +31,11 @@ class Item(BaseModel):
 
 Item(name="Book")           # ✅ 正常
 Item()                      # ❌ 會出錯：缺少 'name'
+type(Item) # 類別
+# 可以像對待普通 Python 類別一樣使用 Item() 來創建實例。
+
+
+Item(name="Book").dict()
 
 # =============================================================================
 # name: str = None

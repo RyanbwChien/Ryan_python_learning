@@ -4,6 +4,50 @@ Created on Fri Jan 17 14:20:03 2025
 
 @author: user
 """
+import nest_asyncio
+nest_asyncio.apply()
+class MyAwaitable:
+    def __init__(self):
+        self.step = 0
+
+    def __await__(self):
+        print("自定義 await 開始")
+        yield "步驟 1"
+        print("做完步驟 1")
+        yield "步驟 2"
+        print("做完步驟 2")
+        return "自定義完成"
+
+# 包裝成 async function 使用
+async def main():
+    result = await MyAwaitable()
+    print("結果：", result)
+
+import asyncio
+asyncio.run(main())
+
+#%%
+import time
+async def dosomething(x):
+    time.sleep(2)
+    return x * 2
+
+async def main2():
+    result = await dosomething(10)
+    print(result)  # 👉 20
+
+# Notebook 或支援 await 的環境可以直接這樣跑
+async def main():
+    tasks = [main2 for i in range(5)]  # 建立所有異步任務
+    await asyncio.gather(*tasks)  # 正確地等待所有協程完成
+    
+if __name__ == "__main__":
+    start = time.time()
+    asyncio.run(main())  # 使用 asyncio.run() 執行 main 協程
+    print(f"time: {time.time() - start:.2f} (s)")
+        
+    
+#%%
 # =============================================================================
 # import asyncio
 # async def pp(x):
