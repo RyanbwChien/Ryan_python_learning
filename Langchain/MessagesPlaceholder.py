@@ -11,7 +11,7 @@ Created on Tue Apr  8 15:55:49 2025
 
 
 # [問題]  MessagesPlaceholder是不是會將USER輸入的對話進去 變成新的 HUMANMESSAGE 插入在記憶體中LIST裡面?
-
+    
 # ✅ 是的，你完全理解正確！
 
 memory = ConversationBufferMemory(
